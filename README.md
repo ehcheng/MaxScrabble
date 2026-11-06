@@ -1,16 +1,23 @@
+<div style="text-align: right" align="right"><i>Peter Norvig<br>Nov 2026</i></div>
+
 # A 4,068-point Scrabble Solitaire Game
 
-In Scrabble Solitaire, the idea is to make the highest possible total score, using a standard board, the standard tiles from the 100-tile bag, but allowing any 7 tiles to be chosen for each play. I vibe-coded a program that gets to a **4,068 point** game. The word list I used  merges the standard ENABLE Scrabble list with the obsolete Webster's Second. Several words, such as JACKPUDDINGHOOD, would  not be legal in tournament play today.
-A [famous game](https://digitalcommons.butler.edu/cgi/viewcontent.cgi?article=2692&context=wordways) scored **4,001 points** using a similar word list.
+In Scrabble Solitaire, the idea is to make the highest possible total score, using a standard board, the standard tiles from the 100-tile bag, but allowing any 7 tiles to be chosen for each play. 
+
+
+I vibe-coded a program that gets to a **4,068 point** game. The word list I used  merges the standard ENABLE Scrabble list with the obsolete Webster's Second. Several words, such as JACKPUDDINGHOOD, would  not be legal in tournament play today.
+My goal was to beat a [famous game](https://digitalcommons.butler.edu/cgi/viewcontent.cgi?article=2692&context=wordways) that scored **4,001 points** using a similar word list. I achieved my goal.
+
+<img src="scrabble_4068.png" width=800>
 
 
 | file | what it is |
 |---|---|
 | `scrabmax.cpp` | the solver in C++ |
 | `game_4068.txt` | the best game found so far|
-| `enable_web2.txt` | thee dictionary, merging the standard ENABLE word list and  Webster's Second Dictionary |
+| `enable_web2.txt` | the dictionary |
 | `scrabble_video.py` | makes the MP4/GIF animation of a game |
-| `scrabble_4068.gif`, `.mp4` | the animation |
+| `scrabble_4068.gif`, `.mp4`, `.png` | the animation and the final frame |
 
 
 
@@ -24,7 +31,7 @@ A [famous game](https://digitalcommons.butler.edu/cgi/viewcontent.cgi?article=26
 
     ./scrabmax enable_web2.txt -p 60 -w 80 -m 12 -v 14 > game.txt     # the settings that found 4,068
 
-It takes a minute or two to run
+It takes a minute or two to run.
 
 | option | meaning | default |
 |---|---|---|
