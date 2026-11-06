@@ -1,18 +1,18 @@
-# A 4,068-point Scrabble game
+# A 4,068-point Scrabble Solitaire Game
 
-One player, standard board, tiles from the 100-tile bag (blanks score 0), 50-point bingo, choosing
-your rack each turn to maximize the game's total.
+In Scrabble Solitaire, the idea is to make the highest possible total score, using a standard board, the standard tiles from the 100-tile bag, but allowing any 7 tiles to be chosen for each play. Various different word lists have been used. 
+A [famous game](https://digitalcommons.butler.edu/cgi/viewcontent.cgi?article=2692&context=wordways) scored 4001 points using the now obsolete Webster's Second Dictionary.
+The word list I used here merges the standard ENABLE Scrabble list with the obsolete Webster's Second. Several words, such as JACKPUDDINGHOOD, would  not be legal in tournament play today.
 
 | file | what it is |
 |---|---|
-| `scrabmax.cpp` | the solver |
-| `game_4068.txt` | the best game found (ENABLE + Webster's Second word list) |
+| `scrabmax.cpp` | the solver in C++ |
+| `game_4068.txt` | the best game found so far|
+| `enable_web2.txt` | thee dictionary, merging the standard ENABLE word list and  Webster's Second Dictionary |
 | `scrabble_video.py` | makes the MP4/GIF animation of a game |
-| `scrabble_4068.gif`, `.mp4` | that animation |
+| `scrabble_4068.gif`, `.mp4` | the animation |
 
-Note: the word list is ENABLE plus the lowercase words of Webster's Second International (1934), the
-`web2` file on every Mac. It is not a Scrabble dictionary: JACKPUDDINGHOOD and a few shorter words
-in this game are not legal in tournament play.
+
 
 ## The solver
 
@@ -20,19 +20,11 @@ in this game are not legal in tournament play.
 
     clang++ -O3 -std=c++17 -pthread -o scrabmax scrabmax.cpp      # or g++
 
-### Word list
-
-    curl -O https://norvig.com/ngrams/enable1.txt
-    grep -xE '[a-z]+' /usr/share/dict/web2 | cat - enable1.txt | tr -d '\r' | sort -u > enable_web2.txt
-
-(310,178 words. Any list with one word per line works, e.g. `enable1.txt` alone.)
-
 ### Run
 
     ./scrabmax enable_web2.txt -p 60 -w 80 -m 12 -v 14 > game.txt     # the settings that found 4,068
 
-That took 21 minutes on 2 cores; it uses all cores by default. Default settings
-(`./scrabmax enable_web2.txt > game.txt`) take about 3 minutes and find 4,036.
+It takes a minute or two to run
 
 | option | meaning | default |
 |---|---|---|
@@ -48,16 +40,16 @@ That took 21 minutes on 2 cores; it uses all cores by default. Default settings
 | `-P` | print the plans found and stop | |
 
 Progress goes to stderr. The output is `BEST <score>`, then one line per move, then the final board
-(blanks in lowercase):
+(blanks in lowercase). Each move looks like this:
 
     A  7  6 CENTENA         placed=7 score=70  plan
 
-`A`/`D` = across/down, then the row and column of the word's first square (0–14, top-left `0 0`),
-the whole word, tiles placed, points, and whether the move is part of the plan or an extra.
+`A`/`D` means across/down, then the zero-based row and column of the word's first square,
+the whole word, number of tiles placed, points, and whether the move is part of the plan or an extra.
 
 ### How it works
 
-1. **Planner.** Finds a *skeleton*: 15-letter words across rows 0, 7 and 14, joined by 8-letter
+1. **Planner**: Finds a *skeleton*: 15-letter words across rows 0, 7 and 14, joined by 8-letter
    column words ("connectors"), that can be built as a sequence of legal plays:
    opening word through the center → the rest of the middle row's 8 pre-placed letters → the
    middle-row play covering both of its triple-word squares (×9) → connectors, each a 7-tile bingo
@@ -67,7 +59,7 @@ the whole word, tiles placed, points, and whether the move is part of the plan o
    The middle row's pre-placed letters may be split into pieces, each fed by a *reverse connector*
    coming back from an edge row; plans may add *hook connectors*, column words completed by a new
    tile of a ×27 play (so they are tripled on columns 0, 7 and 14).
-2. **Beam search.** Plays the game from an empty board. A state's children are the next plan move,
+2. **Beam search**: Plays the game from an empty board. A state's children are the next plan move,
    plus the best moves with leftover tiles, on squares and tiles the plan doesn't need. Those can come
    at any point in the plan; one next to a plan square is valued by exactly re-scoring the rest of the
    plan after it, and is rejected if it would make a later plan move illegal. A move that needs a
