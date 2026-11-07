@@ -2,7 +2,7 @@
 
 # A 4,068-point Scrabble Solitaire Game
 
-In Scrabble Solitaire, the idea is to make the highest possible total score, using a standard board, the standard tiles from the 100-tile bag, but allowing any 7 tiles to be chosen for each play. 
+In Scrabble Solitaire, the idea is to make the highest possible total score, using a standard board, the standard tiles from the 100-tile bag, but allowing any set of up to 7 tiles to be chosen from the bag on each play. 
 
 
 I vibe-coded a program that gets to a **4,068 point** game. The word list I used  merges the standard ENABLE Scrabble list with the obsolete Webster's Second. Several words, such as JACKPUDDINGHOOD, would  not be legal in tournament play today.
