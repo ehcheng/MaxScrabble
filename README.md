@@ -11,6 +11,7 @@ My goal was to beat a [famous game](https://digitalcommons.butler.edu/cgi/viewco
 <img src="scrabble_4068.png" width=800>
 
 
+
 | file | what it is |
 |---|---|
 | `scrabmax.cpp` | the solver in C++ |
@@ -68,7 +69,9 @@ the whole word, number of tiles placed, points, and whether the move is part of 
 
 # Animation maker
 
-A python program to make .gif and .mp4 files showing an animation of a game's progress. Requires Python 3.8+, and Pillow 10.1+, ffmpeg.
+![Animation](scrabble_4068.gif)
+
+A python program to make .gif and .mp4 files showing an animation of a game's progress, like [this](https://github.com/norvig/MaxScrabble/blob/main/scrabble_4068.gif). Requires Python 3.8+, and Pillow 10.1+, ffmpeg.
 
     pip install Pillow                  # and: brew install ffmpeg
     python3 scrabble_video.py game_4068.txt                    # writes game_4068.mp4 and game_4068.gif
