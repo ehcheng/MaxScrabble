@@ -31,20 +31,19 @@ My goal was to beat a [famous game](https://digitalcommons.butler.edu/cgi/viewco
     ./scrabmax enable_web2.txt -p 60 -w 80 -m 12 -v 14 > game.txt # the settings that found 4,068
 
 It takes a minute or two to run.
-
-| option | meaning | default |
-|---|---|---|
-| `-t N` | threads to run in parallel | all cores |
-| `-p K` | how many of the best plans to play out; `0` = no plan, plain beam search | 20 |
-| `-k K` | how many skeletons get built and scored exactly. | 150 |
-| `-c N` | planner candidates for the edge rows (the middle row gets 5×) | 1000 |
-| `-w W` | beam width (states kept per number of tiles on the board) | 20 |
-| `-m M` | free moves kept per state, per number of tiles placed | 8 |
-| `-v V` | estimated points per tile the plan doesn't use (ranks plans and states) | 10 |
-| `-H X` | consider a hook connector only if it's expected to add more than X points | 0 |
-| `-D` | print the hook-connector options found for each plan | |
-| `-f FILE` | play this plan (move lines, e.g. from `-P` or a game file) instead of planning | |
-| `-P` | print the plans found and stop | |
+    
+    // usage: scrabmax DICT [-t threads] [-p plans] [-c candidates] [-P] ...   > game.txt
+    //   -t  threads (default: all cores; results don't depend on it)
+    //   -p  number of best plans to play out (default 20; 0 = no plan)
+    //   -k  number of skeletons to build and score exactly (default max(150, 5 x plans))
+    //   -c  planner candidates for the edge rows (default 1000; the middle row gets 5x; more = slower)
+    //   -w  beam width per tile count (default 20)
+    //   -m  free moves kept per state, per number of tiles placed (default 8)
+    //   -v  estimated points per unplayed leftover tile, used in ranking states (default 10)
+    //   -H  consider a hook connector only if it's expected to add more than this (default 0)
+    //   -D  print the hook options found for each skeleton
+    //   -f  play this plan (move lines as written by -P or in a game file) instead of planning
+    //   -P  just print the plans found, as move lines, and stop
 
 Progress goes to stderr. The output is `BEST <score>`, then one line per move, then the final board
 (blanks in lowercase). Each move looks like this:
