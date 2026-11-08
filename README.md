@@ -36,6 +36,7 @@ It takes a minute or two to run.
 |---|---|---|
 | `-t N` | threads to run in parallel | all cores |
 | `-p K` | how many of the best plans to play out; `0` = no plan, plain beam search | 20 |
+| `-k K` | how many skeletons get built and scored exactly. | 150 |
 | `-c N` | planner candidates for the edge rows (the middle row gets 5×) | 1000 |
 | `-w W` | beam width (states kept per number of tiles on the board) | 20 |
 | `-m M` | free moves kept per state, per number of tiles placed | 8 |
