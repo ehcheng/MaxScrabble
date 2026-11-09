@@ -1,0 +1,42 @@
+BEST 4086  (split PUD/HEN/UTA from 4075)
+A  7  6 CENTENA         placed=7 score=70  plan
+A  7  6 CENTENAR        placed=1 score=10  plan
+A  7  0 SESQUICENTENARY placed=7 score=401  plan
+D  0  1 AGRAFFEE        placed=7 score=96  plan
+A  4  1 FI              placed=1 score=5  extra
+A  4  1 FIN             placed=1 score=6  extra
+D  0  4 PRIEDIEU        placed=7 score=88  plan
+D  3  3 ANTIQUIST       placed=7 score=130  extra
+D  0 10 GROWABLE        placed=7 score=78  plan
+D  0 13 OLIGOMER        placed=7 score=84  plan
+D  7  5 InVASIVE        placed=7 score=79  plan
+D  7  9 TOWERLET        placed=7 score=71  plan
+D  7 12 AMARETTO        placed=7 score=76  plan
+A  0  4 PU              placed=1 score=4  extra
+A  0  4 PUD             placed=1 score=6  extra
+A  0  8 ING             placed=2 score=4  plan
+A 14  4 HE              placed=1 score=5  extra
+A 14  4 HEN             placed=1 score=6  extra
+A 14  8 UT              placed=1 score=2  extra
+A 14  8 UTA             placed=1 score=3  extra
+A 14 12 ON              placed=1 score=2  plan
+D  1  0 Ay              placed=2 score=5  extra
+A  0  0 JACKPUDDINGHOOD placed=7 score=1319  plan
+A 14  0 OXYPHENBUTAZONE placed=7 score=1508  plan
+D 13  1 OX              placed=1 score=18  extra
+D 12  1 LOX             placed=1 score=10  extra
+JACKPUDDINGHOOD
+AG..R.....R..L.
+yR..I.....O..I.
+.A.AE.....W..G.
+.FIND.....A..O.
+.F.TI.....B..M.
+.E.IE.....L..E.
+SESQUICENTENARY
+...U.n...O..M..
+...I.V...W..A..
+...S.A...E..R..
+...T.S...R..E..
+.L...I...L..T..
+.O...V...E..T..
+OXYPHENBUTAZONE

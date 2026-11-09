@@ -8,6 +8,8 @@ In Scrabble Solitaire, the idea is to make the highest possible total score, usi
 I vibe-coded a program that gets to a **4,068 point** game. The word list I used  merges the standard ENABLE Scrabble list with the obsolete Webster's Second. Several words, such as JACKPUDDINGHOOD, would  not be legal in tournament play today.
 My goal was to beat a [famous game](https://digitalcommons.butler.edu/cgi/viewcontent.cgi?article=2692&context=wordways) that scored **4,001 points** using a similar word list. I achieved my goal.
 
+Update: a 4,086-point game, `game_4086.txt`, uses the same three 15-letter words and the same final board, and gets 18 more points from the move order: a wider beam finds a better order, and three two-tile plays are split into one-tile plays.
+
 <img src="scrabble_4068.png" width=800>
 
 
@@ -16,6 +18,8 @@ My goal was to beat a [famous game](https://digitalcommons.butler.edu/cgi/viewco
 |---|---|
 | `scrabmax.cpp` | the solver in C++ |
 | `game_4068.txt` | the best game found so far|
+| `game_4086.txt` | a 4,086-point game (same board as 4,068, better move order)|
+| `verify.py` | an independent checker for a game file |
 | `enable_web2.txt` | the dictionary |
 | `scrabble_video.py` | makes the MP4/GIF animation of a game |
 | `scrabble_4068.gif`, `.mp4`, `.png` | the animation and the final frame |
